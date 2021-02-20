@@ -22,15 +22,18 @@ class CountdownTimer {
       const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
       const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
 
-      this.refs.days.textContent = days;
-      this.refs.hours.textContent = hours;
-      this.refs.mins.textContent = mins;
-      this.refs.secs.textContent = secs;
-
       function pad(value) {
         return String(value).padStart(2, '0');
       }
+
+      this.clockValue(days, hours, mins, secs);
     }, 1000);
+  }
+  clockValue(days, hours, mins, secs) {
+    this.refs.days.textContent = days;
+    this.refs.hours.textContent = hours;
+    this.refs.mins.textContent = mins;
+    this.refs.secs.textContent = secs;
   }
 }
 
